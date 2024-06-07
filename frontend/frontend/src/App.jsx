@@ -46,14 +46,12 @@ function App(){
 
   const completeTodo=(e,id,todo)=>{
     if(e.target.checked){
-      console.log("okay")
       setTodos(todos.map(todo=>todo.id==id? {...todo,completed:true}: todo))
       const updatedTodo={...todo,completed:true}
       axios.patch("http://127.0.0.1:8000/todos/"+id,updatedTodo)
 
     }
     else{
-      console.log("omo")
       setTodos(todos.map(todo=>todo.id==id? {...todo,completed:false}:todo))
       const updatedTodo={...todo,completed:false}
       axios.patch("http://127.0.0.1:8000/todos/"+id,updatedTodo)
